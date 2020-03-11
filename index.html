@@ -6,10 +6,21 @@
     <title>Image Cropper</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./index.js" defer></script>
   </head>
   <body>
     <input type="file" name="fileUpload" id="fileUpload" />
     <div id="uploadedImage"></div>
+    <hr />
+    <div>
+      <img id="croppedImage" /><br />
+      <button id="cropButton">crop</button>
+    </div>
+    <div id="cropResult"></div>
   </body>
 </html>
