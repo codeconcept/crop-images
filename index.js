@@ -6,6 +6,8 @@ fileUpload.addEventListener("change", getImage, false);
 let cropper = null;
 const cropButton = document.getElementById("cropButton");
 cropButton.addEventListener("click", cropImage);
+let myGreatImage = null;
+const croppedImage = document.getElementById("croppedImage");
 
 function getImage() {
   console.log("images", this.files[0]);
@@ -18,18 +20,19 @@ function getImage() {
   newImg.id = "myGreatImage";
   uploadedImageDiv.style.border = "4px solid #FCB514";
   uploadedImageDiv.appendChild(newImg);
+  myGreatImage = document.getElementById("myGreatImage");
 
   processImage();
 }
 
 function processImage() {
-  const myGreatImage = document.getElementById("myGreatImage");
-  const croppedImage = document.getElementById("croppedImage");
-
   cropper = new Cropper(myGreatImage, {
-    aspectRatio: 16 / 9,
+    aspectRatio: 1, // 16 / 9,
     crop(event) {
-      console.log(event);
+      console.log(
+        Math.round(event.detail.width),
+        Math.round(event.detail.height)
+      );
       const canvas = this.cropper.getCroppedCanvas();
       croppedImage.src = canvas.toDataURL("image/png");
     }
