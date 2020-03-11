@@ -26,8 +26,9 @@ function getImage() {
 }
 
 function processImage() {
+  cropButton.style.display = "block";
   cropper = new Cropper(myGreatImage, {
-    aspectRatio: 1, // 16 / 9,
+    aspectRatio: 1,
     crop(event) {
       console.log(
         Math.round(event.detail.width),
